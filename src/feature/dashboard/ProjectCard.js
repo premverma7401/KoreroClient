@@ -1,10 +1,11 @@
 import React from 'react';
-
+import { Link, NavLink } from 'react-router-dom';
+import './projectCard.css';
 const ProjectCard = ({ projects }) => {
   return (
     <>
       {projects.map((project) => (
-        <div className="ui card" key={project.id}>
+        <div className="ui card  " key={project.id}>
           <div className="content">
             <img
               src="/images/avatar/large/steve.jpg"
@@ -18,9 +19,11 @@ const ProjectCard = ({ projects }) => {
             </div>
           </div>
           <div className="extra content">
-            <div className="ui two buttons">
-              <button className="ui green basic button">View Details</button>
-            </div>
+            <NavLink to={`dashboard/${project.id}`}>
+              <div className="ui two buttons">
+                <button className="ui green basic button">View Details</button>
+              </div>
+            </NavLink>
           </div>
         </div>
       ))}

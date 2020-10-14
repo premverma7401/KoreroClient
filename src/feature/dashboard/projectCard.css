@@ -1,0 +1,15 @@
+/*  Dashboard Classes */
+
+.main-cards {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid red;
+  justify-content: center;
+  padding: 50px;
+}
+
+/*  ProjectCard Classes */
+
+.ui.cards > .card {
+  /* background-color: white !important; */
+}

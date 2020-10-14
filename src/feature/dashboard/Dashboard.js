@@ -1,9 +1,7 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import agent from '../../api/agent';
 import ProjectCard from './ProjectCard';
-
+import './projectCard.css';
 const Dashboard = () => {
   const [projects, setProjects] = useState([]);
 
@@ -22,7 +20,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="ui cards ">
+    <div className="ui cards main-cards ">
       <ProjectCard projects={projects} />
     </div>
   );
