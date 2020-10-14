@@ -6,3 +6,11 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+body {
+  background-image: linear-gradient(
+    120deg,
+    #fdfbfb 0%,
+    #ebedee 100%
+  ) !important;
+  /* background-color: antiquewhite !important; */
+}
