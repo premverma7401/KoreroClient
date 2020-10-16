@@ -3,13 +3,20 @@
 .main-cards {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid red;
   justify-content: center;
-  padding: 50px;
+  padding: 10px 30px;
+}
+.custom-toggle {
+  display: flex;
+  padding: 15px;
+  background-color: #fff;
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.custom-toggle label {
+  padding-right: 15px;
 }
 
 /*  ProjectCard Classes */
-
-.ui.cards > .card {
-  /* background-color: white !important; */
-}

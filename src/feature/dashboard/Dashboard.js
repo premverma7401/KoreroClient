@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import agent from '../../api/agent';
-import ProjectCard from './ProjectCard';
+import React, { useState } from 'react';
+import AdminDashboard from './admin-dashboard/AdminDashboard';
 import './projectCard.css';
+import UserDashboard from './user-dashboard/UserDashboard';
 const Dashboard = () => {
-  const [projects, setProjects] = useState([]);
+  const [mode, setMode] = useState(false);
 
-  const fetchProjects = async () => {
-    try {
-      const projects = await agent.Projects.list();
-      setProjects(projects);
-      console.log(projects);
-    } catch (error) {
-      console.log(error);
-    }
+  const handleChange = () => {
+    setMode(!mode);
   };
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
   return (
-    <div className="ui cards main-cards ">
-      <ProjectCard projects={projects} />
+    <div>
+      <div className="custom-toggle">
+        <div>
+          <label>Admin View</label>
+        </div>
+        <div className="ui toggle checkbox">
+          <input
+            type="checkbox"
+            name="public"
+            value={mode}
+            onChange={handleChange}
+          />
+          <label>UserView</label>
+        </div>
+      </div>
+      {mode ? <UserDashboard /> : <AdminDashboard />}
     </div>
   );
 };
