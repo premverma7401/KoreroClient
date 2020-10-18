@@ -7,7 +7,6 @@ export const ProjectContext = createContext();
 export const ProjectProvider = (props) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [projectInfoFromDb, setProjectInfoFromDb] = useState({});
   const loadProjects = async () => {
     try {
       setLoading(true);
@@ -20,21 +19,10 @@ export const ProjectProvider = (props) => {
     }
   };
 
-  // const fetchProjectInfo = async (id) => {
-  //   // setLoading(true);
-  //   try {
-  //     console.log(id, 'dasdas');
-  //     const projectInfoFromDb = await agent.ProjectInfo.details(id);
-  //     setProjectInfoFromDb(projectInfoFromDb);
-  //     // console.log(projectInfoFromDb);
-  //     setProjectInfoFromDb(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   useEffect(() => {
-    loadProjects();
+    const abort = new AbortController();
+    loadProjects({ signal: abort.signal });
+    return () => abort.abort();
   }, []);
 
   if (loading)

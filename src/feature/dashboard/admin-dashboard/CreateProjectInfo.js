@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { Button, Form, TextArea } from 'semantic-ui-react';
 import agent from '../../../api/agent';
 import { ProjectContext } from '../../../store/ProjectContext';
@@ -35,6 +35,8 @@ const CreateProjectInfo = () => {
   const fetchProjectInfo = async (id) => {
     try {
       const projectInfoFromDb = await agent.ProjectInfo.details(id);
+      toast.success('Loaded Successfully');
+
       if (!projectInfoFromDb) {
         console.log('No project details');
         setNew(true);
@@ -48,6 +50,7 @@ const CreateProjectInfo = () => {
       console.log(error);
     }
   };
+  const notify = () => toast('Wow so easy !');
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -154,6 +157,7 @@ const CreateProjectInfo = () => {
           Reset
         </Button>
       </Button.Group>
+      <ToastContainer />
     </Form>
   );
 };
