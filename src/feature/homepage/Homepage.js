@@ -10,9 +10,9 @@ const Homepage = () => {
         <Header as="h1" inverted>
           <Image
             size="massive"
-            src="/assets/logo.png"
+            src="https://picsum.photos/200"
             alt="logo"
-            style={{ marginBottom: 12 }}
+            style={{ marginBottom: 12, borderRadius: '50%' }}
           />
           Portfolio
         </Header>

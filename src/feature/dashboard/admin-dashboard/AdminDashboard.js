@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
 import CreateProject from './CreateProject';
+import CreateProjectInfo from './CreateProjectInfo';
 
 const AdminDashboard = () => {
   return (
@@ -15,7 +16,7 @@ const AdminDashboard = () => {
 
           <Grid.Column width={6}>
             <Segment>
-              <CreateProject />
+              <CreateProjectInfo />
             </Segment>
           </Grid.Column>
         </Grid.Row>

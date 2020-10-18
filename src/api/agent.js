@@ -26,17 +26,23 @@ const sleep = (ms) => (response) =>
   new Promise((resolve) => setTimeout(() => resolve(response), ms));
 
 const request = {
-  get: (url) => axios.get(url).then(sleep(1000)).then(responseBody),
-  post: (url, body) => axios.post(url, body).then(responseBody),
+  get: (url) => axios.get(url).then(sleep(10)).then(responseBody),
+  post: (url, body) => axios.post(url, body).then(sleep(10)).then(responseBody),
 };
 
 const Projects = {
   list: () => request.get('/Project/GetAllProjects'),
-  details: (id) => request.post(`/Project/GetProjectInfo/${id}`),
   create: (project) => request.post('/Project/CreateProject', project),
   update: (projectName, id) =>
     request.post(`/Project/UpdateProject?projectName=${projectName}&Id=${id}`),
   delete: (id) => request.post(`/Project/DeleteProject/${id}`),
 };
 
-export default { Projects };
+const ProjectInfo = {
+  details: (id) => request.post(`/Project/GetProjectInfo/${id}`),
+  create: (projectInfo) =>
+    request.post('/Project/CreateProjectInfo', projectInfo),
+  update: (projectInfo) =>
+    request.post('/Project/UpdateProjectInfo', projectInfo),
+};
+export default { Projects, ProjectInfo };

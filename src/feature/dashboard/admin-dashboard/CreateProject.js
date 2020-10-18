@@ -36,20 +36,20 @@ const CreateProject = () => {
       <Form.Field>
         <label>Project Name</label>
         <input
+          required
           placeholder="Project Name"
           name="projectName"
           value={newProject.projectName}
           onChange={handleChange}
         />
       </Form.Field>
-      <Form.Field>
-        <Form.Field
-          control={Select}
-          label="Status"
-          options={options}
-          placeholder="Project Status"
-        />
-      </Form.Field>
+
+      <Form.Field
+        control={Select}
+        label="Status"
+        options={options}
+        placeholder="Project Status"
+      />
 
       <Button type="submit">Submit</Button>
     </Form>
